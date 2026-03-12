@@ -123,6 +123,7 @@
   .video-wrap video { width:100%; display:block; }
   .video-embed { max-width:640px; margin:1.5rem auto; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--ps-shadow-lg); background:#000; aspect-ratio:16/9; }
   .video-embed iframe { width:100%; height:100%; border:none; }
+  .video-embed video { width:100%; height:100%; border:none; display:block; }
 
   /* ═══ STATS ROW ═══ */
   .stats-row { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:1rem; margin:1.5rem 0; }
@@ -303,9 +304,12 @@
     <p>PreventScripts is a lifestyle medicine and remote patient monitoring (RPM) platform that partners with primary care practices to help patients prevent and manage chronic conditions like obesity, diabetes, and hypertension — all through their mobile phone.</p>
 
     <div class="video-embed">
-      <iframe src="https://drive.google.com/file/d/1GlFMxrs8Hsydm-ZvAckY5WEo_ZFan95w/preview" allow="autoplay" allowfullscreen></iframe>
+      <video controls playsinline preload="metadata">
+        <source src="about-preventscripts.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
-    <p style="text-align:center; font-size:0.82rem; color:var(--ps-gray); margin-top:0.5rem;"><em>If the video above doesn't load, ensure your network allows Google Drive access.</em></p>
+    <p style="text-align:center; font-size:0.82rem; color:var(--ps-gray); margin-top:0.5rem;"><em>If the video above doesn't load, try refreshing the page or contact support.</em></p>
 
     <h2>How It Works</h2>
     <p>When a provider identifies a patient at risk for metabolic conditions, they enroll the patient into the PreventScripts program. Here's what happens next:</p>
