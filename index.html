@@ -227,6 +227,98 @@
   .support-card p { font-size:0.82rem; color:var(--ps-gray); }
   .support-card a { color:var(--ps-teal-mid); text-decoration:none; font-weight:500; }
 
+  /* ═══ PATIENT PRINT CARD ═══ */
+  .patient-card-wrap { margin-top:1.5rem; }
+  .patient-card-printable {
+    background:linear-gradient(145deg, #f8fdfa, #eef7f2);
+    border:2px solid #b7d9c9;
+    border-radius:14px;
+    padding:1.25rem;
+    max-width:720px;
+    box-shadow:var(--ps-shadow);
+  }
+  .patient-card-eyebrow {
+    display:inline-block;
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#1f5b3f;
+    background:#dff2e7;
+    border:1px solid #b7d9c9;
+    border-radius:999px;
+    padding:0.18rem 0.6rem;
+    margin-bottom:0.55rem;
+  }
+  .patient-card-printable h4 {
+    margin:0 0 0.5rem;
+    font-size:1.15rem;
+    color:#1a2e35;
+  }
+  .patient-card-printable p {
+    margin:0 0 0.7rem;
+    font-size:0.92rem;
+    color:#2e4b3f;
+  }
+  .patient-card-list {
+    margin:0.4rem 0 0.85rem 1rem;
+    color:#234535;
+    font-size:0.9rem;
+  }
+  .patient-card-list li { margin:0.2rem 0; }
+  .patient-card-contact {
+    background:#ffffff;
+    border:1px solid #cfe5da;
+    border-radius:10px;
+    padding:0.75rem 0.9rem;
+    color:#1f5b3f;
+    font-size:0.9rem;
+  }
+  .patient-card-note {
+    margin-top:0.5rem;
+    font-size:0.8rem;
+    color:#537162;
+  }
+  .patient-card-actions {
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6rem;
+    margin-bottom:0.85rem;
+  }
+  .patient-card-compact-sheet {
+    display:none;
+    max-width:720px;
+  }
+  .patient-card-compact-card {
+    background:#ffffff;
+    border:2px dashed #9fc6b1;
+    border-radius:12px;
+    padding:0.95rem 1rem;
+    margin-top:0.7rem;
+  }
+  .patient-card-compact-card h5 {
+    margin:0 0 0.45rem;
+    font-size:1rem;
+    color:#1a2e35;
+  }
+  .patient-card-compact-card p {
+    margin:0 0 0.45rem;
+    font-size:0.85rem;
+    color:#2e4b3f;
+  }
+  .patient-card-compact-card ul {
+    margin:0.2rem 0 0.5rem 0.95rem;
+    font-size:0.82rem;
+    color:#234535;
+  }
+  .patient-card-compact-card li { margin:0.15rem 0; }
+  .patient-card-cut-note {
+    margin:0.4rem 0 0;
+    font-size:0.74rem;
+    color:#5f7c6d;
+    text-align:center;
+  }
+
   /* ═══ CASE STUDY CARDS ═══ */
   .cs-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem; margin-top:1.5rem; }
   .cs-card { background:var(--ps-white); border:1px solid #e0e6e8; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--ps-shadow); transition:transform .2s, box-shadow .2s; }
@@ -249,6 +341,64 @@
     .mod-banner { background:var(--ps-teal) !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
     .mod-body { padding:1rem !important; }
     .cheat-card { -webkit-print-color-adjust:exact; print-color-adjust:exact; break-inside:avoid; }
+
+    body.print-patient-card .module { display:none !important; }
+    body.print-patient-card #mod3 { display:block !important; }
+    body.print-patient-card #mod3 .mod-banner,
+    body.print-patient-card #mod3 .mod-nav,
+    body.print-patient-card #mod3 h2,
+    body.print-patient-card #mod3 > p,
+    body.print-patient-card #mod3 .scenario-card,
+    body.print-patient-card #mod3 .esc-flow,
+    body.print-patient-card #mod3 .print-btn,
+    body.print-patient-card #mod3 .patient-card-intro { display:none !important; }
+    body.print-patient-card #mod3 .patient-card-printable {
+      display:block !important;
+      box-shadow:none !important;
+      border:2px solid #8ab89f;
+      margin:0;
+      max-width:none;
+      break-inside:avoid;
+      page-break-inside:avoid;
+      -webkit-print-color-adjust:exact;
+      print-color-adjust:exact;
+    }
+
+    body.print-patient-card-half .module { display:none !important; }
+    body.print-patient-card-half #mod3 { display:block !important; }
+    body.print-patient-card-half #mod3 .mod-banner,
+    body.print-patient-card-half #mod3 .mod-nav,
+    body.print-patient-card-half #mod3 h2,
+    body.print-patient-card-half #mod3 > p,
+    body.print-patient-card-half #mod3 .scenario-card,
+    body.print-patient-card-half #mod3 .esc-flow,
+    body.print-patient-card-half #mod3 .patient-card-intro,
+    body.print-patient-card-half #mod3 .patient-card-actions,
+    body.print-patient-card-half #mod3 .patient-card-printable { display:none !important; }
+    body.print-patient-card-half #mod3 .patient-card-compact-sheet {
+      display:grid !important;
+      grid-template-rows:1fr 1fr;
+      gap:0.5rem;
+      max-width:none;
+      margin:0;
+      min-height:95vh;
+      -webkit-print-color-adjust:exact;
+      print-color-adjust:exact;
+    }
+    body.print-patient-card-half #mod3 .patient-card-compact-card {
+      margin:0;
+      break-inside:avoid;
+      page-break-inside:avoid;
+      border:2px solid #8ab89f;
+      border-radius:10px;
+      padding:0.8rem 0.9rem;
+    }
+    body.print-patient-card-half #mod3 .patient-card-cut-note {
+      display:block !important;
+      margin:0.1rem 0 0;
+      font-size:0.68rem;
+      color:#466454;
+    }
   }
 
   .sidebar-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.3); z-index:90; }
@@ -427,7 +577,7 @@
 
     <div class="scenario-card"><div class="scenario-header" onclick="toggleScenario(this)"><div class="scenario-icon">🔄</div><h4>"I need to reschedule or cancel"</h4><span class="scenario-chevron">▾</span></div><div class="scenario-body"><div class="scenario-body-inner"><div class="patient-says">"Something came up. Can you change my appointment?"</div><div class="speech-bubble"><div class="speech-label">Your Response</div>"You can reschedule or cancel right from the app. Tap <strong>Sessions</strong>, then <strong>Schedule a Session</strong>. The Preventy assistant gives you options to reschedule or cancel. You can also tap the <strong>P icon</strong> and say 'Reschedule my session.'"</div></div></div></div>
 
-    <div class="scenario-card"><div class="scenario-header" onclick="toggleScenario(this)"><div class="scenario-icon">💰</div><h4>"Is this going to cost me anything?"</h4><span class="scenario-chevron">▾</span></div><div class="scenario-body"><div class="scenario-body-inner"><div class="patient-says">"How much does this cost?"</div><div class="speech-bubble"><div class="speech-label">Your Response</div>"PreventScripts is provided at no additional cost as part of your care with our practice. For specific billing questions, reach out to PreventScripts support directly."</div></div></div></div>
+    <div class="scenario-card"><div class="scenario-header" onclick="toggleScenario(this)"><div class="scenario-icon">💰</div><h4>"Is this going to cost me anything?"</h4><span class="scenario-chevron">▾</span></div><div class="scenario-body"><div class="scenario-body-inner"><div class="patient-says">"How much does this cost?"</div><div class="speech-bubble"><div class="speech-label">Your Response</div>"PreventScripts is included as part of your care with our practice. Most patients have no out-of-pocket cost for the program, but that can depend on your specific insurance plan or employer benefits. If you'd like to know exactly what your plan covers, our billing team can look into that for you."</div></div></div></div>
 
     <div class="scenario-card"><div class="scenario-header" onclick="toggleScenario(this)"><div class="scenario-icon">😤</div><h4>Patient insists you schedule for them</h4><span class="scenario-chevron">▾</span></div><div class="scenario-body"><div class="scenario-body-inner"><div class="patient-says">"I don't want to use the app. Can't you just do it?"</div><div class="speech-bubble"><div class="speech-label">Stay Friendly but Firm</div>"I completely understand. Unfortunately, I'm not able to schedule PreventScripts sessions from our system — it's only done through the app. But it's really easy! If you have your phone, I can walk you through it right now — takes less than a minute. Or the support team can help at <strong>(859) 287-4977</strong>."</div><p style="margin-top:0.75rem;font-size:0.82rem;color:var(--ps-gray);"><strong>Remember:</strong> Never schedule on behalf of the patient, even under pressure.</p></div></div></div>
 
@@ -436,6 +586,58 @@
       <div class="esc-item"><div class="esc-lbl">Step 1</div><div class="esc-dot"></div><div class="esc-txt"><strong>Walk them through it</strong> on their phone</div></div>
       <div class="esc-item"><div class="esc-lbl">Step 2</div><div class="esc-dot"></div><div class="esc-txt"><strong>Provide a printed card</strong> with instructions</div></div>
       <div class="esc-item"><div class="esc-lbl">Step 3</div><div class="esc-dot"></div><div class="esc-txt"><strong>Refer to support</strong><br>(859) 287-4977</div></div>
+    </div>
+
+    <div class="patient-card-wrap">
+      <h3>Patient Handout Card</h3>
+      <p class="patient-card-intro">Use this printable card when a patient needs quick help after attempted app walkthrough.</p>
+      <div class="patient-card-actions">
+        <button class="print-btn" onclick="printPatientCard()">🖨️ Print Full-Page Card</button>
+        <button class="print-btn" onclick="printPatientCardHalf()">🖨️ Print Half-Page (2-up)</button>
+      </div>
+
+      <div class="patient-card-printable" id="patientCardPrintable">
+        <span class="patient-card-eyebrow">PreventScripts Patient Help Card</span>
+        <h4>Need help scheduling your PreventScripts session?</h4>
+        <p>You're not alone. We can help you get scheduled quickly.</p>
+        <ul class="patient-card-list">
+          <li>Open the PreventScripts app and tap <strong>Sessions</strong>.</li>
+          <li>Tap <strong>+ Schedule a session</strong>.</li>
+          <li>Or tap the <strong>P icon</strong> (Preventy assistant) and say "Schedule a new session."</li>
+        </ul>
+        <div class="patient-card-contact">
+          <strong>Need support?</strong><br>
+          Call: <strong>(859) 287-4977</strong><br>
+          Email: <strong>support@preventscripts.com</strong><br>
+          Hours: Mon-Fri, 9 AM - 5 PM Eastern
+        </div>
+        <p class="patient-card-note">This card is for patient use. Front desk staff cannot schedule PreventScripts sessions on a patient's behalf.</p>
+      </div>
+
+      <div class="patient-card-compact-sheet" id="patientCardCompactSheet">
+        <div class="patient-card-compact-card">
+          <h5>PreventScripts Quick Help</h5>
+          <p>Open the app and schedule your session in a few taps.</p>
+          <ul>
+            <li>Tap <strong>Sessions</strong> in the app.</li>
+            <li>Tap <strong>+ Schedule a session</strong>.</li>
+            <li>Or tap the <strong>P icon</strong> and say "Schedule a new session."</li>
+          </ul>
+          <p><strong>Support:</strong> (859) 287-4977 | support@preventscripts.com</p>
+          <p class="patient-card-cut-note">Cut here and give this card to the patient.</p>
+        </div>
+        <div class="patient-card-compact-card">
+          <h5>PreventScripts Quick Help</h5>
+          <p>Open the app and schedule your session in a few taps.</p>
+          <ul>
+            <li>Tap <strong>Sessions</strong> in the app.</li>
+            <li>Tap <strong>+ Schedule a session</strong>.</li>
+            <li>Or tap the <strong>P icon</strong> and say "Schedule a new session."</li>
+          </ul>
+          <p><strong>Support:</strong> (859) 287-4977 | support@preventscripts.com</p>
+          <p class="patient-card-cut-note">Cut here and give this card to the patient.</p>
+        </div>
+      </div>
     </div>
   </div>
   <div class="mod-nav">
@@ -601,6 +803,21 @@ function printCheatSheet() {
   document.getElementById('mod4').classList.add('print-target');
   window.print();
 }
+
+function printPatientCard() {
+  document.body.classList.add('print-patient-card');
+  window.print();
+}
+
+function printPatientCardHalf() {
+  document.body.classList.add('print-patient-card-half');
+  window.print();
+}
+
+window.addEventListener('afterprint', function() {
+  document.body.classList.remove('print-patient-card');
+  document.body.classList.remove('print-patient-card-half');
+});
 
 // Set onboarding video to 0.5x on load
 document.addEventListener('DOMContentLoaded', function() {
