@@ -604,6 +604,7 @@
   <div class="lms-logo">Prevent<span>Scripts</span> LMS</div>
   <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
   <nav>
+    <a href="#" onclick="returnToLanding();return false;">Home</a>
     <a href="#" onclick="goTo(0);return false;">Dashboard</a>
     <a href="#" onclick="goTo(1);return false;">Course Library</a>
   </nav>
@@ -1034,6 +1035,14 @@ function enterFrontOffice() {
   if (app) app.style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
   try { goTo(0); } catch (e) {}
+}
+
+function returnToLanding() {
+  const landing = document.getElementById('landing');
+  const app = document.getElementById('frontOfficeApp');
+  if (landing) landing.style.display = 'block';
+  if (app) app.style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function enterClinical() {
