@@ -931,6 +931,24 @@
       <div class="quiz-card" data-correct="2"><h4><span class="q-num">5</span>Patient keeps insisting you schedule for them. Final step?</h4><button class="quiz-option" data-idx="0" onclick="answer(this)">Schedule it to avoid conflict</button><button class="quiz-option" data-idx="1" onclick="answer(this)">Tell them they can't use the program</button><button class="quiz-option" data-idx="2" onclick="answer(this)">Refer them to PreventScripts support at (859) 287-4977</button><button class="quiz-option" data-idx="3" onclick="answer(this)">Ask the doctor to intervene</button><div class="quiz-feedback"></div></div>
     </div>
     <div class="score-banner" id="scoreBanner"><div class="score-num" id="scoreNum"></div><p id="scoreMsg"></p><button class="btn-reset" onclick="resetQuiz()">Retake Quiz</button></div>
+
+    <div id="fo-certificate-section" style="display:none; margin-top:2rem; padding:2rem; background:linear-gradient(135deg, #f0f8f8, #e8f4f6); border:2px solid var(--ps-teal-light); border-radius:var(--radius-lg);">
+      <h3 style="color:var(--ps-teal-dark); margin-bottom:0.5rem; text-align:center;">🎓 You Passed! Generate Your Certificate</h3>
+      <p style="text-align:center;color:var(--ps-gray);margin-bottom:1.5rem;">Score 4/5 or higher to earn your certificate of completion.</p>
+      <div style="max-width:520px;margin:0 auto 1rem;">
+        <label for="fo-trainee-name" style="font-weight:600;color:var(--ps-dark);">Your Full Name (as it should appear on the certificate):</label><br>
+        <input id="fo-trainee-name" type="text" placeholder="e.g., Jane Doe" style="width:100%;padding:0.75rem 0.9rem;border-radius:10px;border:1px solid #d7e2e6;margin-top:0.5rem;font-size:1rem;">
+      </div>
+      <div style="text-align:center;margin-bottom:1.5rem;">
+        <button onclick="generateFrontOfficeCertificate()" class="mod-nav-btn primary" style="font-size:1rem;">Generate Certificate</button>
+      </div>
+      <div id="fo-certificate-preview" style="display:none;text-align:center;">
+        <canvas id="fo-certificate-canvas" width="1000" height="700" style="max-width:100%;height:auto;border:2px solid var(--ps-teal-lighter);border-radius:var(--radius);box-shadow:0 4px 20px rgba(0,0,0,0.1);"></canvas>
+        <div style="margin-top:1rem;">
+          <button onclick="downloadFrontOfficeCertificate()" class="mod-nav-btn primary" style="font-size:1rem;">📥 Download / Print Certificate</button>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="mod-nav">
     <button class="mod-nav-btn" onclick="goTo(4)">← Previous</button>
@@ -1035,6 +1053,114 @@ function closeLightbox() {
   lb.classList.remove('active');
   const img = document.getElementById('lightboxImage');
   if (img) img.src = '';
+}
+
+function generateFrontOfficeCertificate() {
+  const name = document.getElementById('fo-trainee-name').value.trim();
+  if (!name) { alert('Please enter your name to generate the certificate.'); return; }
+  if (qC < 4) { alert('You need a score of 4/5 or higher to earn the certificate. Your score: '+qC+'/5.'); return; }
+
+  const canvas = document.getElementById('fo-certificate-canvas');
+  const ctx = canvas.getContext('2d');
+  const w = 1000, h = 700;
+
+  ctx.fillStyle = '#fdf8f4';
+  ctx.fillRect(0, 0, w, h);
+
+  const grd = ctx.createLinearGradient(0, 0, w, 0);
+  grd.addColorStop(0, '#0e3538');
+  grd.addColorStop(1, '#17494d');
+  ctx.fillStyle = grd;
+  ctx.fillRect(0, 0, w, 120);
+
+  ctx.fillStyle = '#e8872a';
+  ctx.fillRect(0, 120, w, 6);
+
+  ctx.strokeStyle = '#0e3538';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(2, 2, w-4, h-4);
+
+  ctx.strokeStyle = '#e8872a';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(15, 15, w-30, h-30);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '18px Arial, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('PreventScripts', 40, 55);
+  ctx.font = 'bold 14px Arial, sans-serif';
+  ctx.textAlign = 'right';
+  ctx.fillText('FRONT DESK & RECEPTION STAFF TRAINING', w-40, 55);
+
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 42px Georgia, serif';
+  ctx.fillText('Certificate of Completion', w/2, 100);
+
+  ctx.fillStyle = '#666666';
+  ctx.font = '18px Georgia, serif';
+  ctx.fillText('This certifies that', w/2, 200);
+
+  ctx.fillStyle = '#0e3538';
+  ctx.font = 'bold 38px Georgia, serif';
+  ctx.fillText(name, w/2, 270);
+
+  const nameWidth = ctx.measureText(name).width;
+  ctx.strokeStyle = '#e8872a';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo((w-nameWidth)/2 - 20, 282);
+  ctx.lineTo((w+nameWidth)/2 + 20, 282);
+  ctx.stroke();
+
+  ctx.fillStyle = '#333333';
+  ctx.font = '16px Georgia, serif';
+  ctx.fillText('has successfully completed the PreventScripts Front Desk & Reception Staff Training', w/2, 340);
+  ctx.fillText('and demonstrated proficiency in patient support workflows, scheduling guidance,', w/2, 370);
+  ctx.fillText('and PreventScripts program basics.', w/2, 400);
+
+  ctx.fillStyle = '#17494d';
+  ctx.font = 'bold 16px Arial, sans-serif';
+  ctx.fillText('Knowledge Assessment Score: '+qC+'/5 ('+(qC*20)+'%)', w/2, 450);
+
+  const dateStr = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+
+  ctx.strokeStyle = '#333333';
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(180, 580); ctx.lineTo(380, 580); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(620, 580); ctx.lineTo(820, 580); ctx.stroke();
+
+  ctx.fillStyle = '#0e3538';
+  ctx.font = 'bold 13px Arial, sans-serif';
+  ctx.fillText('David Moore, RN, COO PreventScripts', 280, 562);
+
+  ctx.fillStyle = '#666666';
+  ctx.font = '13px Arial, sans-serif';
+  ctx.fillText(dateStr, 720, 562);
+
+  ctx.fillStyle = '#666666';
+  ctx.font = '12px Arial, sans-serif';
+  ctx.fillText('Program Director', 280, 600);
+  ctx.fillText('Date of Completion', 720, 600);
+
+  ctx.fillStyle = '#0e3538';
+  ctx.fillRect(0, h-30, w, 30);
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '11px Arial, sans-serif';
+  ctx.fillText('PreventScripts · Front Desk & Reception Staff Training · preventscripts.com', w/2, h-12);
+
+  document.getElementById('fo-certificate-preview').style.display = 'block';
+}
+
+function downloadFrontOfficeCertificate() {
+  const canvas = document.getElementById('fo-certificate-canvas');
+  const pw = window.open('','_blank');
+  const imgData = canvas.toDataURL('image/png');
+  pw.document.write('<html><head><title>PreventScripts Certificate</title><style>body{margin:0;display:flex;justify-content:center;align-items:center;min-height:100vh}img{max-width:100%;height:auto}@media print{body{background:white}}</style></head><body>');
+  pw.document.write('<img src="'+imgData+'">');
+  pw.document.write('</body></html>');
+  pw.document.close();
+  setTimeout(function(){ pw.print(); }, 300);
 }
 
 const totalModules = 8;
@@ -1162,11 +1288,17 @@ function showScore(){
   document.getElementById('scoreNum').style.color=qC>=4?'var(--ps-green-bar)':'var(--ps-red)';
   document.getElementById('scoreMsg').innerHTML=qC>=4?'🎉 <strong>You passed!</strong> You\'re ready to help patients with confidence.':'You need 4 of 5 to pass. Review the material and try again.';
   b.classList.add('show');b.scrollIntoView({behavior:'smooth',block:'center'});
+  const cert=document.getElementById('fo-certificate-section');
+  if(cert) cert.style.display = (qC>=4) ? 'block' : 'none';
 }
 function resetQuiz(){
   qA=0;qC=0;
   document.querySelectorAll('.quiz-card').forEach(c=>{c.classList.remove('answered');c.querySelectorAll('.quiz-option').forEach(b=>{b.disabled=false;b.classList.remove('correct','incorrect');});c.querySelector('.quiz-feedback').className='quiz-feedback';});
   document.getElementById('scoreBanner').classList.remove('show');
+  const cert=document.getElementById('fo-certificate-section');
+  if(cert) cert.style.display = 'none';
+  const prev=document.getElementById('fo-certificate-preview');
+  if(prev) prev.style.display = 'none';
 }
 
 initCarousel(); updateProgress();
