@@ -567,6 +567,7 @@
           <div style="flex:1;">
             <h2>Clinical</h2>
             <p>Provider-facing resources, workflows, and clinical guidance.</p>
+            <p style="font-size:0.82rem; color:var(--ps-orange); font-weight:600; margin-top:0.25rem;">⏱ Estimated time: ~45 minutes</p>
             <div class="role-actions">
               <button class="role-btn primary" type="button" onclick="enterClinical()">Start Clinical training</button>
             </div>
@@ -578,6 +579,7 @@
           <div style="flex:1;">
             <h2>Front Office</h2>
             <p>Front desk workflows, scripts, onboarding, and patient support guidance.</p>
+            <p style="font-size:0.82rem; color:var(--ps-orange); font-weight:600; margin-top:0.25rem;">⏱ Estimated time: ~18 minutes</p>
             <div class="role-actions">
               <button class="role-btn primary" type="button" onclick="enterFrontOffice()">Start Front Office training</button>
             </div>
@@ -660,21 +662,23 @@
     <div style="margin:1rem 0 1.5rem; padding:1.25rem; background:var(--ps-teal-wash); border:1px solid var(--ps-teal-lighter); border-radius:var(--radius);">
       <p style="margin-bottom:0.5rem; color:var(--ps-dark);"><strong>1. Assessment:</strong> Patients complete a health risk assessment in the waiting room before their visit, giving providers real-time data.</p>
       <p style="margin-bottom:0.5rem; color:var(--ps-dark);"><strong>2. Enrollment:</strong> The provider enrolls eligible patients and they download the PreventScripts app.</p>
-      <p style="margin-bottom:0.5rem; color:var(--ps-dark);"><strong>3. Starter Kit:</strong> Patients receive a healthy living kit at home — including a Bluetooth-connected scale, water bottle, healthy plate magnet, and program instructions.</p>
+      <p style="margin-bottom:0.5rem; color:var(--ps-dark);"><strong>3. Starter Kit:</strong> After their first coaching session, patients receive a healthy living kit at home — including a Bluetooth-connected scale or BP cuff, water bottle, healthy plate magnet, and program instructions.</p>
       <p style="margin-bottom:0.5rem; color:var(--ps-dark);"><strong>4. Daily Tracking:</strong> Patients track health habits like water intake, nutrition, and steps in the app.</p>
       <p style="margin-bottom:0.5rem; color:var(--ps-dark);"><strong>5. My Plans™ Goals:</strong> Patients set simple, evidence-based goals (Drink More Water, Eat More Vegetables, Move More, etc.) and receive daily coaching tips.</p>
       <p style="color:var(--ps-dark);"><strong>6. Monthly Sessions:</strong> A Health Advocacy Coach (HAC) from the care team meets with the patient monthly to review progress, address barriers, and set next steps.</p>
+    </div>
 
-      <div class="asset-grid" aria-label="Program visuals">
-        <button class="asset-thumb" type="button" onclick="openLightbox('kit.png')">
-          <img src="kit.png" alt="PreventScripts starter kit contents" loading="lazy">
-          <div class="asset-cap"><strong>Starter kit</strong><br>What patients receive at home.</div>
-        </button>
-        <button class="asset-thumb" type="button" onclick="openLightbox('Frame 3646285.png')">
-          <img src="Frame 3646285.png" alt="PreventScripts app dashboard example" loading="lazy">
-          <div class="asset-cap"><strong>App dashboard</strong><br>What patients see day-to-day.</div>
-        </button>
-      </div>
+    <h3 style="margin-top:1.5rem;">What Patients Receive</h3>
+    <p style="color:var(--ps-gray);font-size:0.92rem;">These visuals show what the program looks like for patients — helpful context when they ask you about it.</p>
+    <div class="asset-grid" aria-label="Program visuals">
+      <button class="asset-thumb" type="button" onclick="openLightbox('kit.png')">
+        <img src="kit.png" alt="PreventScripts starter kit contents" loading="lazy">
+        <div class="asset-cap"><strong>Starter kit</strong><br>What patients receive at home.</div>
+      </button>
+      <button class="asset-thumb" type="button" onclick="openLightbox('Frame 3646285.png')">
+        <img src="Frame 3646285.png" alt="PreventScripts app dashboard example" loading="lazy">
+        <div class="asset-cap"><strong>App dashboard</strong><br>What patients see day-to-day.</div>
+      </button>
     </div>
 
     <h2>Proven Results</h2>
@@ -1017,6 +1021,7 @@
     <div style="margin-top:2rem;padding:1.5rem;background:var(--ps-teal-wash);border-radius:var(--radius);text-align:center;">
       <h3 style="color:var(--ps-teal-dark);margin-bottom:0.5rem;">🎉 Training Complete!</h3>
       <p style="color:var(--ps-gray);font-size:0.95rem;">Bookmark this page as your ongoing reference. You can revisit any section using the sidebar.</p>
+      <p style="margin-top:0.75rem;"><button onclick="goTo(5)" class="mod-nav-btn primary" style="font-size:0.9rem;">📜 View Quiz & Certificate →</button></p>
     </div>
   </div>
   <div class="mod-nav">
