@@ -467,10 +467,9 @@
         <div class=”thumb-cap”><strong>Page 2</strong><br>Stage of Motivation &amp; Self-Efficacy</div>
       </div>
     </div>
-    <div style=”margin-top:1rem;”>
-      <button id="assessment-carousel-btn" onclick="showAssessmentCarousel()" class="mod-nav-btn" style="font-size:0.88rem;">📋 Optional: View Full Assessment Walkthrough (all 6 pages) →</button>
-    </div>
-    <div id=”assessment-full-carousel” style=”display:none;margin-top:1rem;”>
+    <details style="margin-top:1rem;">
+      <summary style="cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background:var(--ps-gray-bg);border:1px solid #dce3e5;border-radius:6px;font-size:0.88rem;font-weight:600;color:var(--ps-dark);list-style:none;user-select:none;">📋 Optional: View Full Assessment Walkthrough (all 6 pages) →</summary>
+    <div style="margin-top:1rem;">
 
     <div class=”carousel-container” id=”carousel-2”>
       <div class="carousel-progress" id="carousel-2-dots"></div>
@@ -586,7 +585,8 @@
         <button class="car-btn primary" onclick="carouselNext('carousel-2')" id="carousel-2-next">Continue &rarr;</button>
       </div>
     </div>
-    </div><!-- /#assessment-full-carousel -->
+    </div>
+    </details>
   </div>
   <div class="mod-nav">
     <button class="mod-nav-btn" onclick="goTo(1)">&larr; Previous</button>
@@ -631,10 +631,9 @@
       </tbody>
     </table>
 
-    <div style="margin-top:0.5rem;">
-      <button id="mi-deep-dive-btn" onclick="showMIDeepDive()" class="mod-nav-btn" style="font-size:0.88rem;">📚 Optional Deep Dive: Stage-matched scenarios &amp; objection handling →</button>
-    </div>
-    <div id="mi-deep-dive" style="display:none;margin-top:1rem;">
+    <details style="margin-top:0.5rem;">
+      <summary style="cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background:var(--ps-gray-bg);border:1px solid #dce3e5;border-radius:6px;font-size:0.88rem;font-weight:600;color:var(--ps-dark);list-style:none;user-select:none;">📚 Optional Deep Dive: Stage-matched scenarios &amp; objection handling →</summary>
+    <div style="margin-top:1rem;">
 
     <div class="carousel-container" id="carousel-3">
       <div class="carousel-progress" id="carousel-3-dots"></div>
@@ -768,7 +767,8 @@
         <button class="car-btn primary" onclick="carouselNext('carousel-3')" id="carousel-3-next">Continue &rarr;</button>
       </div>
     </div>
-    </div><!-- /#mi-deep-dive -->
+    </div>
+    </details>
   </div>
   <div class="mod-nav">
     <button class="mod-nav-btn" onclick="goTo(2)">&larr; Previous</button>
