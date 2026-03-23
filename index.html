@@ -368,41 +368,6 @@
       print-color-adjust:exact;
     }
 
-    body.print-patient-card-half .module { display:none !important; }
-    body.print-patient-card-half #mod3 { display:block !important; }
-    body.print-patient-card-half #mod3 .mod-banner,
-    body.print-patient-card-half #mod3 .mod-nav,
-    body.print-patient-card-half #mod3 h2,
-    body.print-patient-card-half #mod3 > p,
-    body.print-patient-card-half #mod3 .scenario-card,
-    body.print-patient-card-half #mod3 .esc-flow,
-    body.print-patient-card-half #mod3 .patient-card-intro,
-    body.print-patient-card-half #mod3 .patient-card-actions,
-    body.print-patient-card-half #mod3 .patient-card-printable { display:none !important; }
-    body.print-patient-card-half #mod3 .patient-card-compact-sheet {
-      display:grid !important;
-      grid-template-rows:1fr 1fr;
-      gap:0.5rem;
-      max-width:none;
-      margin:0;
-      min-height:95vh;
-      -webkit-print-color-adjust:exact;
-      print-color-adjust:exact;
-    }
-    body.print-patient-card-half #mod3 .patient-card-compact-card {
-      margin:0;
-      break-inside:avoid;
-      page-break-inside:avoid;
-      border:2px solid #8ab89f;
-      border-radius:10px;
-      padding:0.8rem 0.9rem;
-    }
-    body.print-patient-card-half #mod3 .patient-card-cut-note {
-      display:block !important;
-      margin:0.1rem 0 0;
-      font-size:0.68rem;
-      color:#466454;
-    }
   }
 
   .sidebar-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.3); z-index:90; }
@@ -803,7 +768,6 @@
       <p class="patient-card-intro">Use this printable card when a patient needs quick help after attempted app walkthrough.</p>
       <div class="patient-card-actions">
         <button class="print-btn" onclick="printPatientCard()">🖨️ Print Full-Page Card</button>
-        <button class="print-btn" onclick="printPatientCardHalf()">🖨️ Print Half-Page (2-up)</button>
       </div>
 
       <div class="patient-card-printable" id="patientCardPrintable">
@@ -1202,14 +1166,8 @@ function printPatientCard() {
   window.print();
 }
 
-function printPatientCardHalf() {
-  document.body.classList.add('print-patient-card-half');
-  window.print();
-}
-
 window.addEventListener('afterprint', function() {
   document.body.classList.remove('print-patient-card');
-  document.body.classList.remove('print-patient-card-half');
 });
 
 // Set onboarding video to 0.5x on load
