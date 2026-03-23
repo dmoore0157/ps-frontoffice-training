@@ -332,13 +332,13 @@
     </ul>
 
     <h2>Video: PreventScripts Platform Overview</h2>
-    <div class="video-wrap">
-      <video id="aboutVideo" controls playsinline controlsList="nodownload" disablePictureInPicture oncontextmenu="return false;">
-        <source src="about-preventscripts.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <p><em>Note: This video provides a clinical overview of PreventScripts&#39; evidence base, patient engagement model, and integration with EHR systems.</em></p>
+    <div style="background:var(--ps-teal-wash);border:1px solid var(--ps-teal-lighter);border-radius:var(--radius);padding:1.25rem;margin:1rem 0;display:flex;align-items:center;gap:1rem;">
+  <span style="font-size:2rem;">▶️</span>
+  <div>
+    <strong>Platform Overview Video</strong> <span style="font-size:0.8rem;color:var(--ps-gray);font-weight:400;">(Optional · ~4 min)</span>
+    <p style="font-size:0.88rem;color:var(--ps-gray);margin-top:0.25rem;">Watch a short overview of the PreventScripts platform. <a href="about-preventscripts.mp4" target="_blank" style="color:var(--ps-teal-dark);font-weight:600;">Watch video →</a></p>
+  </div>
+</div>
   </div>
   <div class="mod-nav">
     <button class="mod-nav-btn" disabled>&larr; Previous</button>
@@ -355,36 +355,6 @@
   <div class="mod-body">
     <h2>Available Programs</h2>
     <p>PreventScripts offers programs designed around disease prevention and chronic condition management. Each program includes remote patient monitoring via the PreventScripts app, a Health Advocacy Coach (HAC), and program-specific devices and resources.</p>
-
-    <div style="background: linear-gradient(135deg, #e8f4f8 0%, #f0f8fb 100%); border-left: 5px solid #0066cc; padding: 20px; margin: 25px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-      <h3 style="color: #0066cc; margin-top: 0; font-size: 18px; font-weight: 600;">Program Details At a Glance</h3>
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 15px;">
-        <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #d0e8f2;">
-          <h4 style="color: #0066cc; margin: 0 0 10px 0; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Assessment Frequency</h4>
-          <ul style="margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.6;">
-            <li><strong>Pre-visit:</strong> Before each clinic visit</li>
-            <li><strong>Recurring:</strong> Every 6 months</li>
-            <li><strong>Results:</strong> Sent to EHR automatically</li>
-          </ul>
-        </div>
-        <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #d0e8f2;">
-          <h4 style="color: #0066cc; margin: 0 0 10px 0; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">HAC Coaching Sessions</h4>
-          <ul style="margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.6;">
-            <li><strong>Frequency:</strong> Monthly</li>
-            <li><strong>First session:</strong> Within 2 weeks of enrollment</li>
-            <li><strong>Focus:</strong> My Plans goals, progress review</li>
-          </ul>
-        </div>
-        <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #d0e8f2;">
-          <h4 style="color: #0066cc; margin: 0 0 10px 0; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Program Duration</h4>
-          <ul style="margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.6;">
-            <li><strong>Duration:</strong> As long as medically necessary</li>
-            <li><strong>No fixed end date</strong></li>
-            <li><strong>Goal-driven:</strong> Via &quot;My Plans&quot; exercises</li>
-          </ul>
-        </div>
-      </div>
-    </div>
 
     <div class="alert-box">
       <h3>Important Note</h3>
@@ -476,9 +446,33 @@
     <p>The PreventScripts assessment is completed by patients before their visit and results are sent directly to the EHR. The assessment report is the clinical decision support tool that triages patients into the right intervention. Understanding each section will help you communicate effectively with patients about their results and recommend the right program.</p>
     <p>Below, we&#39;ll walk through each page of the assessment report with example screenshots. <strong>Click any image to enlarge it.</strong></p>
 
-    <div class="tip-box"><strong>Quick orientation:</strong> Use the carousel below as your guided walkthrough. Each page contributes a different “signal” (risk, readiness, barriers, and context) that shapes program selection and communication strategy.</div>
+    <div class=”tip-box”><strong>Quick orientation:</strong> Use the carousel below as your guided walkthrough. Each page contributes a different “signal” (risk, readiness, barriers, and context) that shapes program selection and communication strategy.</div>
 
-    <div class="carousel-container" id="carousel-2">
+    <h3 style=”margin-top:1.5rem;”>Quick Read: What to Look for in the Assessment Report</h3>
+    <ul style=”line-height:2;color:var(--ps-dark);padding-left:1.25rem;”>
+      <li><strong>Page 1 — Program Recommendations:</strong> Shows which PreventScripts program(s) are recommended based on the patient's risk profile.</li>
+      <li><strong>Page 2 — Stage of Motivation:</strong> Shows the Prochaska DiClemente stage (Pre-Contemplation → Maintenance). Guides your communication approach.</li>
+      <li><strong>Page 2 — Self-Efficacy Score:</strong> A score of 0–100. Low scores (&lt;40) mean the patient needs smaller steps and more encouragement.</li>
+      <li><strong>Page 3 — PROMIS Global Health:</strong> T-score benchmarked against the US average. T=50 is average; higher is better physical/mental health.</li>
+      <li><strong>Page 4 — SDOH Screening:</strong> If food insecurity, housing, or transportation barriers appear, address basic needs BEFORE focusing on behavior change.</li>
+      <li><strong>Page 5–6 — Behavior Profile:</strong> Shows current activity, nutrition, sleep, and stress patterns — context for coaching conversations.</li>
+    </ul>
+    <div class=”assessment-gallery” aria-label=”Key assessment pages” style=”margin-top:1rem;”>
+      <div class=”assessment-thumb” onclick=”openLightbox('assessment_page_0.png')”>
+        <img src=”assessment_page_0.png” alt=”Assessment report page 1 - Program Recommendations” loading=”lazy”>
+        <div class=”thumb-cap”><strong>Page 1</strong><br>Program Recommendations</div>
+      </div>
+      <div class=”assessment-thumb” onclick=”openLightbox('assessment_page_1.png')”>
+        <img src=”assessment_page_1.png” alt=”Assessment report page 2 - Stage of Motivation” loading=”lazy”>
+        <div class=”thumb-cap”><strong>Page 2</strong><br>Stage of Motivation &amp; Self-Efficacy</div>
+      </div>
+    </div>
+    <div style=”margin-top:1rem;”>
+      <button onclick=”document.getElementById('assessment-full-carousel').style.display='block';this.style.display='none';” class=”mod-nav-btn” style=”font-size:0.88rem;”>📋 Optional: View Full Assessment Walkthrough (all 6 pages) →</button>
+    </div>
+    <div id=”assessment-full-carousel” style=”display:none;margin-top:1rem;”>
+
+    <div class=”carousel-container” id=”carousel-2”>
       <div class="carousel-progress" id="carousel-2-dots"></div>
       <div class="carousel-step active">
         <h2>Page 1: Assessment Results Report</h2>
@@ -592,6 +586,7 @@
         <button class="car-btn primary" onclick="carouselNext('carousel-2')" id="carousel-2-next">Continue &rarr;</button>
       </div>
     </div>
+    </div><!-- /#assessment-full-carousel -->
   </div>
   <div class="mod-nav">
     <button class="mod-nav-btn" onclick="goTo(1)">&larr; Previous</button>
@@ -606,6 +601,41 @@
     <p>PreventScripts Clinical Training &middot; Module 4 of 10</p>
   </div>
   <div class="mod-body">
+    <h3 style="margin-top:1.5rem;">Core MI Techniques (OARS)</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:0.92rem;margin-bottom:1.5rem;">
+      <thead><tr style="background:var(--ps-teal-dark);color:white;">
+        <th style="padding:0.6rem 0.85rem;text-align:left;border-radius:6px 0 0 0;">Technique</th>
+        <th style="padding:0.6rem 0.85rem;text-align:left;border-radius:0 6px 0 0;">Example</th>
+      </tr></thead>
+      <tbody>
+        <tr style="background:var(--ps-teal-wash);"><td style="padding:0.6rem 0.85rem;font-weight:600;">Open-ended questions</td><td style="padding:0.6rem 0.85rem;">"What concerns do you have about making this change?"</td></tr>
+        <tr><td style="padding:0.6rem 0.85rem;font-weight:600;">Affirmations</td><td style="padding:0.6rem 0.85rem;">"It sounds like you've already been thinking seriously about your health."</td></tr>
+        <tr style="background:var(--ps-teal-wash);"><td style="padding:0.6rem 0.85rem;font-weight:600;">Reflections</td><td style="padding:0.6rem 0.85rem;">"So on one hand you want to feel better, but on the other hand the time commitment feels hard."</td></tr>
+        <tr><td style="padding:0.6rem 0.85rem;font-weight:600;">Summaries</td><td style="padding:0.6rem 0.85rem;">"Let me make sure I understand what you've shared…"</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Stage-Matched Approach (5 Stages of Change)</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:0.92rem;margin-bottom:1.5rem;">
+      <thead><tr style="background:var(--ps-teal-dark);color:white;">
+        <th style="padding:0.6rem 0.85rem;text-align:left;">Stage</th>
+        <th style="padding:0.6rem 0.85rem;text-align:left;">What it looks like</th>
+        <th style="padding:0.6rem 0.85rem;text-align:left;">Your approach</th>
+      </tr></thead>
+      <tbody>
+        <tr style="background:var(--ps-teal-wash);"><td style="padding:0.6rem 0.85rem;font-weight:600;">Pre-Contemplation</td><td style="padding:0.6rem 0.85rem;">"I don't have a problem."</td><td style="padding:0.6rem 0.85rem;">Plant a seed — don't push. Share information, respect autonomy.</td></tr>
+        <tr><td style="padding:0.6rem 0.85rem;font-weight:600;">Contemplation</td><td style="padding:0.6rem 0.85rem;">"Maybe I should change… but."</td><td style="padding:0.6rem 0.85rem;">Explore pros and cons together. Use open questions to surface ambivalence.</td></tr>
+        <tr style="background:var(--ps-teal-wash);"><td style="padding:0.6rem 0.85rem;font-weight:600;">Preparation</td><td style="padding:0.6rem 0.85rem;">"I'm ready to try something."</td><td style="padding:0.6rem 0.85rem;">Help set a small, specific first step. Build confidence.</td></tr>
+        <tr><td style="padding:0.6rem 0.85rem;font-weight:600;">Action</td><td style="padding:0.6rem 0.85rem;">"I've started making changes."</td><td style="padding:0.6rem 0.85rem;">Affirm progress. Address obstacles. Celebrate small wins.</td></tr>
+        <tr style="background:var(--ps-teal-wash);"><td style="padding:0.6rem 0.85rem;font-weight:600;">Maintenance</td><td style="padding:0.6rem 0.85rem;">"I've been doing this for a while."</td><td style="padding:0.6rem 0.85rem;">Reinforce habit. Help anticipate challenges. Prevent relapse.</td></tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:0.5rem;">
+      <button onclick="document.getElementById('mi-deep-dive').style.display='block';this.style.display='none';" class="mod-nav-btn" style="font-size:0.88rem;">📚 Optional Deep Dive: Stage-matched scenarios &amp; objection handling →</button>
+    </div>
+    <div id="mi-deep-dive" style="display:none;margin-top:1rem;">
+
     <div class="carousel-container" id="carousel-3">
       <div class="carousel-progress" id="carousel-3-dots"></div>
 
@@ -738,6 +768,7 @@
         <button class="car-btn primary" onclick="carouselNext('carousel-3')" id="carousel-3-next">Continue &rarr;</button>
       </div>
     </div>
+    </div><!-- /#mi-deep-dive -->
   </div>
   <div class="mod-nav">
     <button class="mod-nav-btn" onclick="goTo(2)">&larr; Previous</button>
@@ -859,7 +890,7 @@
     </ul>
     <button onclick="printEnrollmentChecklist()" class="print-button">&#128424; Print Enrollment Checklist (PDF)</button>
 
-    <h2>Common Enrollment Questions &amp; Solutions</h2>
+    <h2>Common Enrollment Questions &amp; Solutions <span style="font-size:0.8rem;color:var(--ps-gray);font-weight:400;">(Optional)</span></h2>
     <div class="scenario-card">
       <div class="scenario-header" onclick="toggleScenario(event)">&quot;I don&#39;t have a smartphone.&quot; / &quot;I&#39;m not good with technology.&quot; <span class="scenario-chevron">&#9660;</span></div>
       <div class="scenario-body"><div class="scenario-body-inner">
@@ -898,6 +929,12 @@
       <h3 style="color:var(--ps-teal-dark);margin-bottom:0.5rem;">&#128203; HAC Managed Services Note</h3>
       <p>If your practice uses <strong>PreventScripts HAC Managed Services</strong>, this section is handled by our clinical team &mdash; feel free to <a href="#" onclick="goTo(6);return false;" style="color:var(--ps-orange);font-weight:700;">skip to Module 7: HAC Coordination &rarr;</a></p>
       <p style="font-size:0.88rem;color:var(--ps-gray);margin-top:0.5rem;">This content is provided for practices that manage their own patient communication workflows.</p>
+    </div>
+
+    <div style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);border:2px solid var(--ps-orange);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:2rem;">
+      <h3 style="color:var(--ps-teal-dark);margin-bottom:0.5rem;">📚 Optional Deep Dive</h3>
+      <p>This module covers patient communication scripts in depth. It&rsquo;s valuable for practices managing their own patient journeys &mdash; but if you&rsquo;re ready to move on, you can skip ahead.</p>
+      <p style="margin-top:0.75rem;"><button onclick="goTo(7);return false;" class="mod-nav-btn primary" style="font-size:0.88rem;">Skip to Quick Reference &rarr;</button> &nbsp; <button onclick="goTo(8);return false;" class="mod-nav-btn" style="font-size:0.88rem;">Skip to Quiz &rarr;</button></p>
     </div>
 
     <!-- Patient Portal Announcements accordion -->
@@ -1034,6 +1071,11 @@
     <p>PreventScripts Clinical Training &middot; Module 7 of 10</p>
   </div>
   <div class="mod-body">
+    <div style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);border:2px solid var(--ps-orange);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:2rem;">
+      <h3 style="color:var(--ps-teal-dark);margin-bottom:0.5rem;">📚 Optional Deep Dive</h3>
+      <p>This module covers HAC coordination in depth. All essential escalation contacts are in the Quick Reference cheat sheet. Skip ahead if you&rsquo;re short on time.</p>
+      <p style="margin-top:0.75rem;"><button onclick="goTo(7);return false;" class="mod-nav-btn primary" style="font-size:0.88rem;">Skip to Quick Reference &rarr;</button> &nbsp; <button onclick="goTo(8);return false;" class="mod-nav-btn" style="font-size:0.88rem;">Skip to Quiz &rarr;</button></p>
+    </div>
     <div class="carousel-container" id="carousel-6">
       <div class="carousel-progress" id="carousel-6-dots"></div>
 
@@ -1144,40 +1186,20 @@
 
     <div class="cheat-grid">
       <div class="cheat-card">
-        <h4>Program Duration</h4>
-        <p><strong>All Programs:</strong> There is no fixed program duration. Patients remain enrolled as long as medically necessary, with assessments every 6 months and monthly HAC coaching sessions. Programs are goal-driven using &quot;My Plans&quot; exercises.</p>
-      </div>
-      <div class="cheat-card">
         <h4>Enrollment Criteria</h4>
         <p><strong>HTN:</strong> BP &#8805;140/90 or on meds<br><strong>DM2:</strong> A1C &#8805;7% or new diagnosis<br><strong>Weight:</strong> BMI &#8805;30<br><strong>Behavioral:</strong> PHQ-9 &#8805;10 or GAD-7 &#8805;10</p>
-      </div>
-      <div class="cheat-card">
-        <h4>Assessment Frequency</h4>
-        <p><strong>Pre-visit:</strong> Before each clinic visit<br><strong>Recurring:</strong> Every 6 months<br><strong>Results:</strong> Sent to EHR automatically</p>
       </div>
       <div class="cheat-card">
         <h4>Pre-Visit Assessment Link</h4>
         <p><a href="https://bit.ly/468rEmu" target="_blank" style="color:var(--ps-teal-dark);font-weight:600;word-break:break-all;">https://bit.ly/468rEmu</a><br><span style="font-size:0.85rem;color:var(--ps-gray);">Sent automatically with appointment reminders. Patients can also complete it in the waiting room if needed.</span></p>
       </div>
       <div class="cheat-card">
-        <h4>Coaching Model</h4>
-        <p><strong>Frequency:</strong> Monthly HAC sessions<br><strong>First session:</strong> Within 2 weeks of enrollment<br><strong>Focus:</strong> My Plans goals, progress review, barrier identification<br><strong>Approach:</strong> Motivational interviewing, goal-setting</p>
-      </div>
-      <div class="cheat-card">
         <h4>Red Flag Symptoms</h4>
         <p><strong>Escalate immediately:</strong> Chest pain, SBP &gt;180, DBP &gt;120, suicidal ideation, severe hypoglycemia, acute psychiatric crisis</p>
       </div>
       <div class="cheat-card">
-        <h4>Data Access</h4>
-        <p><strong>Assessment reports:</strong> EHR integration or web portal<br><strong>Patient logs:</strong> In-app only (you see summaries in reports)<br><strong>Engagement metrics:</strong> HAC provides updates</p>
-      </div>
-      <div class="cheat-card">
         <h4>Contact Info</h4>
         <p><strong>Patient support:</strong> support@preventscripts.com | (859) 287-4977<br><strong>Clinical staff:</strong> portal.preventscripts.com (Ask tab)</p>
-      </div>
-      <div class="cheat-card">
-        <h4>Privacy &amp; Security</h4>
-        <p><strong>HIPAA:</strong> Fully compliant<br><strong>Encryption:</strong> AES-256 in transit &amp; at rest<br><strong>Data sharing:</strong> Patient controls via consent<br><strong>Vendor:</strong> Business Associate Agreement in place</p>
       </div>
       <div class="cheat-card">
         <h4>Common Myths</h4>
@@ -1417,6 +1439,11 @@
     <p>PreventScripts Clinical Training &middot; Module 10 of 10</p>
   </div>
   <div class="mod-body">
+    <div style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);border:2px solid var(--ps-orange);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:2rem;">
+      <h3 style="color:var(--ps-teal-dark);margin-bottom:0.5rem;">📚 Optional Deep Dive</h3>
+      <p>This module contains real-world case studies that reinforce what you&rsquo;ve learned. Great for deeper understanding &mdash; or skip to complete your training.</p>
+      <p style="margin-top:0.75rem;"><a href="#" onclick="document.querySelector('#mod9 .training-complete, #mod9 [style*=Training]')?.scrollIntoView({behavior:'smooth'});return false;" class="mod-nav-btn primary" style="font-size:0.88rem;text-decoration:none;display:inline-block;">Skip to Training Complete &rarr;</a></p>
+    </div>
     <h2>PreventScripts Case Studies</h2>
     <p>Review these real-world case studies to see PreventScripts in action:</p>
 
