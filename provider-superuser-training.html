@@ -174,7 +174,7 @@ canvas#certCanvas.show{display:block}
 <div class="module active" id="mod0">
   <div class="mod-banner"><h1>Welcome & The Problem We're Solving</h1><p>Presented by Natalie Davis, MD — Founder & Chief Medical Officer</p></div>
   <div class="mod-body">
-    <div class="video-wrap"><video controls src="part1-intro.mp4"></video></div>
+    <div class="video-wrap"><video controlsList="nodownload" controls src="part1-intro.mp4"></video></div>
     <p class="text">Welcome to the Provider Super User Clinical Training. In the video above, Dr. Davis introduces <strong>Cardiodiabesity</strong> — the triple diagnosis of obesity, diabetes, and cardiovascular disease — and the massive gap between Lifespan spending ($5.3T) and Healthspan investment ($1T) that PreventScripts was built to address.</p>
     <h2>Learning Objectives</h2>
     <div class="obj-list">
@@ -191,7 +191,7 @@ canvas#certCanvas.show{display:block}
 <div class="module" id="mod1">
   <div class="mod-banner"><h1>The PreventScripts Platform</h1><p>From patient assessment to the health dashboard</p></div>
   <div class="mod-body">
-    <div class="video-wrap"><video controls src="part2-platform.mp4"></video></div>
+    <div class="video-wrap"><video controlsList="nodownload" controls src="part2-platform.mp4"></video></div>
     <p class="text">In this segment, Dr. Davis walks through the PreventScripts solution — from the initial patient assessment (Personal Information, ADA Risk, Self-Efficacy, Global Short Form 10, SDOH) to the patient dashboard showing Health Biometrics and Health Behaviors.</p>
     <h2>Supplemental: Patient Journey Demo</h2>
     <p class="text">As Dr. Davis mentions, here's a 4-minute bird's-eye view of the complete patient journey through PreventScripts:</p>
@@ -204,7 +204,7 @@ canvas#certCanvas.show{display:block}
 <div class="module" id="mod2">
   <div class="mod-banner"><h1>Stage of Change & PROMIS</h1><p>The Transtheoretical Model and patient-reported outcomes</p></div>
   <div class="mod-body">
-    <div class="video-wrap"><video controls src="part3-ttm-promis.mp4"></video></div>
+    <div class="video-wrap"><video controlsList="nodownload" controls src="part3-ttm-promis.mp4"></video></div>
     <p class="text">Dr. Davis shows how the TTM stages map onto the PreventScripts provider dashboard — where you see the patient's Risk Profile, Behaviour Profile, PROMIS Self-Efficacy scores, Stage of Motivation, and Patient Reported Outcomes all in one view.</p>
     <h2>The Five Stages</h2>
     <div class="stage-grid">
@@ -226,7 +226,7 @@ canvas#certCanvas.show{display:block}
 <div class="module" id="mod3">
   <div class="mod-banner"><h1>The 5A's Framework</h1><p>Evidence-based behavioral counseling for every encounter</p></div>
   <div class="mod-body">
-    <div class="video-wrap"><video controls src="part4-five-a.mp4"></video></div>
+    <div class="video-wrap"><video controlsList="nodownload" controls src="part4-five-a.mp4"></video></div>
     <p class="text">In this segment, Dr. Davis demonstrates the 5A's in action — showing how PreventScripts uses patient notifications ("Hey Reese, how are you doing with your goals this week?") to support each step of the framework.</p>
     <h2>Quick Reference</h2>
     <h3>Ask</h3><p class="text">Screen and assess current behaviors in a non-judgmental way.</p>
@@ -243,7 +243,7 @@ canvas#certCanvas.show{display:block}
 <div class="module" id="mod4">
   <div class="mod-banner"><h1>Wrap Up</h1><p>You've completed the video training!</p></div>
   <div class="mod-body">
-    <div class="video-wrap" style="max-width:400px"><video autoplay muted loop playsinline src="part5-closing.mp4"></video></div>
+    <div class="video-wrap" style="max-width:400px"><video controlsList="nodownload" autoplay muted loop playsinline src="part5-closing.mp4"></video></div>
     <h2>Great Work!</h2>
     <p class="text">You've watched all the training content. Before you receive your certificate, let's confirm your understanding with a quick 3-question knowledge check.</p>
     <div class="tip-box"><strong>Passing Requirement:</strong> Answer all 3 questions correctly to unlock your certificate. You may retry as many times as needed.</div>
@@ -466,6 +466,12 @@ function reportSCORM(){
   try{lmsAPI.LMSSetValue('cmi.core.lesson_status','completed');lmsAPI.LMSSetValue('cmi.core.score.raw','100');lmsAPI.LMSCommit('')}catch(e){}
 }
 window.addEventListener('beforeunload',function(){if(lmsAPI){try{lmsAPI.LMSFinish('')}catch(e){}}});
+document.addEventListener('DOMContentLoaded',function(){
+  ['part1-intro.mp4','part2-platform.mp4','part3-ttm-promis.mp4','part4-five-a.mp4'].forEach(function(src){
+    var v=document.querySelector('video[src="'+src+'"]');
+    if(v){v.playbackRate=1.2;v.addEventListener('play',function(){this.playbackRate=1.2;});}
+  });
+});
 </script>
 </body>
 </html>
