@@ -6,3 +6,7 @@ part2-platform.mp4 -filter -diff -merge -text
 part3-ttm-promis.mp4 -filter -diff -merge -text
 part4-five-a.mp4 -filter -diff -merge -text
 part5-closing.mp4 -filter -diff -merge -text
+demo-intro.mp4 -filter -diff -merge -text
+demo-assessment.mp4 -filter -diff -merge -text
+demo-report.mp4 -filter -diff -merge -text
+demo-dashboard.mp4 -filter -diff -merge -text

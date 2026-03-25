@@ -75,6 +75,21 @@ body{font-family:'DM Sans',sans-serif;color:var(--ps-dark);background:var(--ps-g
 .video-wrap{max-width:720px;margin:1.25rem 0;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);background:#000;position:relative;padding-top:56.25%}
 .video-wrap video,.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:block}
 
+/* DEMO CAROUSEL */
+.demo-carousel{max-width:720px;margin:1.25rem 0;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);background:#000}
+.demo-video-wrap{position:relative;padding-top:56.25%}
+.demo-video-wrap video{position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:block}
+.demo-chapters{background:#111;padding:.5rem}
+.demo-chap{display:flex;align-items:center;gap:.75rem;width:100%;padding:.65rem .85rem;background:transparent;border:none;border-radius:6px;cursor:pointer;text-align:left;color:#ccc;transition:background .15s}
+.demo-chap:hover{background:#222}
+.demo-chap.active{background:#1d5f62;color:#fff}
+.demo-chap.active strong{color:#fff}
+.chap-num{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700}
+.demo-chap.active .chap-num{background:rgba(255,255,255,.25)}
+.chap-info{display:flex;flex:1;align-items:center;justify-content:space-between;font-size:.85rem}
+.chap-info strong{font-weight:600}
+.chap-dur{font-size:.78rem;opacity:.6;font-variant-numeric:tabular-nums}
+
 /* ALERT & TIP */
 .alert-box{background:linear-gradient(135deg,#fff5f5,#ffe8ea);border-left:5px solid var(--ps-red);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.25rem;margin:1rem 0}
 .alert-box strong{color:var(--ps-red)}
@@ -194,8 +209,30 @@ canvas#certCanvas.show{display:block}
     <div class="video-wrap"><video controlsList="nodownload" controls src="part2-platform.mp4"></video></div>
     <p class="text">In this segment, Dr. Davis walks through the PreventScripts solution — from the initial patient assessment (Personal Information, ADA Risk, Self-Efficacy, Global Short Form 10, SDOH) to the patient dashboard showing Health Biometrics and Health Behaviors.</p>
     <h2>Supplemental: Patient Journey Demo</h2>
-    <p class="text">As Dr. Davis mentions, here's a 4-minute bird's-eye view of the complete patient journey through PreventScripts:</p>
-    <div class="video-wrap"><iframe src="https://player.puppydog.io/play/75c560" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+    <p class="text">A bird's-eye view of the complete patient journey through PreventScripts — click any chapter to jump directly to it.</p>
+    <div class="demo-carousel" id="demoCarousel">
+      <div class="demo-video-wrap">
+        <video id="demoVideo" controlsList="nodownload" controls src="demo-intro.mp4"></video>
+      </div>
+      <div class="demo-chapters">
+        <button class="demo-chap active" onclick="playDemo(0)">
+          <span class="chap-num">1</span>
+          <span class="chap-info"><strong>Platform Overview</strong><span class="chap-dur">00:02:15</span></span>
+        </button>
+        <button class="demo-chap" onclick="playDemo(1)">
+          <span class="chap-num">2</span>
+          <span class="chap-info"><strong>Patient Assessment</strong><span class="chap-dur">00:01:01</span></span>
+        </button>
+        <button class="demo-chap" onclick="playDemo(2)">
+          <span class="chap-num">3</span>
+          <span class="chap-info"><strong>Health Behavior Report</strong><span class="chap-dur">00:02:04</span></span>
+        </button>
+        <button class="demo-chap" onclick="playDemo(3)">
+          <span class="chap-num">4</span>
+          <span class="chap-info"><strong>Provider Dashboard</strong><span class="chap-dur">00:01:36</span></span>
+        </button>
+      </div>
+    </div>
   </div>
   <div class="mod-nav"><button class="btn" onclick="goTo(0)">← Previous</button><button class="btn primary" onclick="goTo(2)">Next: Stage of Change →</button></div>
 </div>
@@ -323,6 +360,17 @@ canvas#certCanvas.show{display:block}
 </div><!-- /lms-body -->
 
 <script>
+/* ── DEMO CAROUSEL ── */
+var demoSrcs=['demo-intro.mp4','demo-assessment.mp4','demo-report.mp4','demo-dashboard.mp4'];
+function playDemo(idx){
+  var v=document.getElementById('demoVideo');
+  v.src=demoSrcs[idx];
+  v.play();
+  document.querySelectorAll('.demo-chap').forEach(function(b,i){
+    b.classList.toggle('active',i===idx);
+  });
+}
+
 /* ── NAV ── */
 var cur=0,total=7,visited=[0],quizPassed=false;
 function goTo(i){
