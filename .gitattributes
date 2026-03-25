@@ -1,3 +1,8 @@
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 about-preventscripts.mp4 -filter -diff -merge -text
 patient-onboarding.mp4 -filter -diff -merge -text
+part1-intro.mp4 -filter -diff -merge -text
+part2-platform.mp4 -filter -diff -merge -text
+part3-ttm-promis.mp4 -filter -diff -merge -text
+part4-five-a.mp4 -filter -diff -merge -text
+part5-closing.mp4 -filter -diff -merge -text
