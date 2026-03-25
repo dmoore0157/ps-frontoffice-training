@@ -297,11 +297,18 @@ canvas#certCanvas.show{display:block}
 <div class="module" id="mod6">
   <div class="mod-banner"><h1>Certificate of Completion</h1><p>Download your professional certificate</p></div>
   <div class="mod-body">
-    <h2>Generate Your Certificate</h2>
-    <p class="text">Enter your name below and click Generate.</p>
-    <div class="cert-input">
-      <input type="text" id="nameInput" placeholder="Your full name" onkeydown="if(event.key==='Enter')genCert()">
-      <button class="btn primary" onclick="genCert()">Generate</button>
+    <div id="certLocked" style="text-align:center;padding:2.5rem 1rem;background:#f8f9fa;border-radius:var(--radius);border:2px dashed #c8d4d6;margin-bottom:1.5rem;display:none;">
+      <div style="font-size:2.5rem;margin-bottom:0.75rem;">🔒</div>
+      <h3 style="font-family:'DM Serif Display',serif;color:var(--ps-teal-dark);margin:0 0 0.5rem;">Certificate Locked</h3>
+      <p style="color:var(--ps-gray);margin:0;" id="certLockedMsg">Complete all modules and pass the Knowledge Check to unlock your certificate.</p>
+    </div>
+    <div id="certUnlocked" style="display:none;">
+      <h2>Generate Your Certificate</h2>
+      <p class="text">Enter your name below and click Generate.</p>
+      <div class="cert-input">
+        <input type="text" id="nameInput" placeholder="Your full name" onkeydown="if(event.key==='Enter')genCert()">
+        <button class="btn primary" onclick="genCert()">Generate</button>
+      </div>
     </div>
     <canvas id="certCanvas" width="900" height="640"></canvas>
     <div id="certBtns" style="display:none;gap:.75rem;margin-bottom:1.5rem">
@@ -317,7 +324,7 @@ canvas#certCanvas.show{display:block}
 
 <script>
 /* ── NAV ── */
-var cur=0,total=7,visited=[0];
+var cur=0,total=7,visited=[0],quizPassed=false;
 function goTo(i){
   document.querySelectorAll('.module').forEach(m=>m.classList.remove('active'));
   document.getElementById('mod'+i).classList.add('active');
@@ -331,6 +338,21 @@ function goTo(i){
   document.getElementById('pctLabel').textContent=pct+'%';
   cur=i;window.scrollTo(0,0);
   if(window.innerWidth<=900) document.getElementById('sidebar').classList.remove('open');
+  if(i===6) checkCertAccess();
+}
+function checkCertAccess(){
+  var allVisited=[0,1,2,3,4,5].every(function(i){return visited.indexOf(i)!==-1;});
+  var locked=document.getElementById('certLocked');
+  var unlocked=document.getElementById('certUnlocked');
+  if(allVisited&&quizPassed){
+    locked.style.display='none';unlocked.style.display='block';
+  }else{
+    locked.style.display='block';unlocked.style.display='none';
+    var msgs=[];
+    if(!allVisited) msgs.push('visit all training modules (1–5)');
+    if(!quizPassed) msgs.push('pass the Knowledge Check (3/3)');
+    document.getElementById('certLockedMsg').textContent='To unlock your certificate: '+msgs.join(' and ')+'.';
+  }
 }
 function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open')}
 
@@ -363,6 +385,7 @@ function submitQuiz(){
     rd.className='quiz-result pass';
     rd.innerHTML='<h3>Passed! 3/3</h3><p>Excellent work. You may now proceed to your certificate.</p>';
     document.getElementById('toCertBtn').disabled=false;
+    quizPassed=true;
     reportSCORM();
   }else{
     rd.className='quiz-result fail';
@@ -381,6 +404,9 @@ function resetQuiz(){
 
 /* ── CERT ── */
 function genCert(){
+  if(!quizPassed||![0,1,2,3,4,5].every(function(i){return visited.indexOf(i)!==-1;})){
+    alert('Please complete all modules and pass the Knowledge Check before generating your certificate.');return;
+  }
   var name=document.getElementById('nameInput').value.trim();
   if(!name){alert('Please enter your name.');return}
   var c=document.getElementById('certCanvas'),ctx=c.getContext('2d');
