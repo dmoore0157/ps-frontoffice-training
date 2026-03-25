@@ -447,7 +447,7 @@
   .landing-body { padding: 1.75rem 2.25rem 2.25rem; }
   .role-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1rem;
     margin-top: 1rem;
   }
@@ -547,6 +547,18 @@
             <p style="font-size:0.82rem; color:var(--ps-orange); font-weight:600; margin-top:0.25rem;">⏱ Estimated time: ~18 minutes</p>
             <div class="role-actions">
               <button class="role-btn primary" type="button" onclick="enterFrontOffice()">Start Front Office training</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="role-card">
+          <div class="role-icon" aria-hidden="true" style="background:linear-gradient(135deg,#e8872a,#f5a623);color:#fff;">⚡</div>
+          <div style="flex:1;">
+            <h2>Provider Super User</h2>
+            <p>Clinical champion training: 5A's framework, Stage of Change, PROMIS interpretation, and platform demo.</p>
+            <p style="font-size:0.82rem; color:var(--ps-orange); font-weight:600; margin-top:0.25rem;">⏱ Estimated time: ~18 minutes</p>
+            <div class="role-actions">
+              <button class="role-btn primary" type="button" onclick="enterSuperUser()">Start Provider training</button>
             </div>
           </div>
         </div>
@@ -978,6 +990,10 @@ function returnToLanding() {
 
 function enterClinical() {
   window.location.href = 'clinical-training.html';
+}
+
+function enterSuperUser() {
+  window.location.href = 'provider-superuser-training.html';
 }
 
 function openLightbox(src) {
