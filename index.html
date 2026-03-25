@@ -484,7 +484,7 @@
   }
   .role-card h2 { font-size: 1.05rem; margin: 0; color: var(--ps-teal-dark); }
   .role-card p { margin-top: 0.35rem; color: var(--ps-gray); font-size: 0.92rem; }
-  .role-actions { margin-top: 0.85rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .role-actions { margin-top: auto; padding-top: 1rem; display: flex; justify-content: center; }
   .role-btn {
     display: inline-flex;
     align-items: center;
@@ -501,7 +501,7 @@
     font-family: inherit;
     font-size: 0.92rem;
   }
-  .role-btn.primary { background: var(--ps-teal); border-color: var(--ps-teal); color: var(--ps-white); }
+  .role-btn.primary { background: var(--ps-teal); border-color: var(--ps-teal); color: var(--ps-white); width: 100%; }
   .role-btn:hover { background: var(--ps-teal-lighter); }
   .role-btn.primary:hover { background: var(--ps-teal-mid); }
   .role-btn[aria-disabled="true"] {
@@ -529,36 +529,36 @@
       <div class="role-grid">
         <div class="role-card">
           <div class="role-icon" aria-hidden="true">🩺</div>
-          <div style="flex:1;">
+          <div style="flex:1;display:flex;flex-direction:column;">
             <h2>Clinical</h2>
             <p>Provider-facing resources, workflows, and clinical guidance.</p>
             <p style="font-size:0.82rem; color:var(--ps-orange); font-weight:600; margin-top:0.25rem;">⏱ Estimated time: ~20 min core · 90 min with deep dives</p>
             <div class="role-actions">
-              <button class="role-btn primary" type="button" onclick="enterClinical()">Start Clinical training</button>
+              <button class="role-btn primary" type="button" onclick="enterClinical()">Start Training</button>
             </div>
           </div>
         </div>
 
         <div class="role-card">
           <div class="role-icon" aria-hidden="true">🏥</div>
-          <div style="flex:1;">
+          <div style="flex:1;display:flex;flex-direction:column;">
             <h2>Front Office</h2>
             <p>Front desk workflows, scripts, onboarding, and patient support guidance.</p>
             <p style="font-size:0.82rem; color:var(--ps-orange); font-weight:600; margin-top:0.25rem;">⏱ Estimated time: ~18 minutes</p>
             <div class="role-actions">
-              <button class="role-btn primary" type="button" onclick="enterFrontOffice()">Start Front Office training</button>
+              <button class="role-btn primary" type="button" onclick="enterFrontOffice()">Start Training</button>
             </div>
           </div>
         </div>
 
         <div class="role-card">
           <div class="role-icon" aria-hidden="true">🏆</div>
-          <div style="flex:1;">
+          <div style="flex:1;display:flex;flex-direction:column;">
             <h2>Provider Super User</h2>
             <p>Clinical champion training: 5A's framework, Stage of Change, PROMIS interpretation, and platform demo.</p>
             <p style="font-size:0.82rem; color:var(--ps-orange); font-weight:600; margin-top:0.25rem;">⏱ Estimated time: ~18 minutes</p>
             <div class="role-actions">
-              <button class="role-btn primary" type="button" onclick="enterSuperUser()">Start Provider training</button>
+              <button class="role-btn primary" type="button" onclick="enterSuperUser()">Start Training</button>
             </div>
           </div>
         </div>
