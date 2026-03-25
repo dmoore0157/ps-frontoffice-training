@@ -25,7 +25,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--ps-dark);background:var(--ps-g
 .lms-header{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--ps-teal-dark);height:var(--header-h);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 .lms-logo{font-family:'DM Serif Display',serif;color:var(--ps-white);font-size:1.2rem;text-decoration:none}
 .lms-logo span{color:var(--ps-orange-light);font-family:'DM Sans',sans-serif;font-weight:700}
-.lms-header nav{display:flex;gap:1.5rem}
+.header-right{display:flex;align-items:center;gap:1rem}
 .lms-header nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
 .lms-header nav a:hover{color:var(--ps-white)}
 .hamburger{display:none;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer}
@@ -155,11 +155,10 @@ canvas#certCanvas.show{display:block}
 
 <!-- HEADER -->
 <header class="lms-header">
-  <a href="index.html" class="lms-logo">Prevent<span>Scripts</span></a>
-  <nav>
-    <a href="index.html">← Training Home</a>
-    <a href="#">Provider Super User</a>
-  </nav>
+  <a href="index.html" class="lms-logo">Prevent<span>Scripts</span> Provider Super User</a>
+  <div class="header-right">
+    <a href="index.html" style="color:rgba(255,255,255,0.9);font-size:0.85rem;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.4);border-radius:999px;padding:0.3rem 0.9rem;display:inline-flex;align-items:center;gap:0.4rem;"><span aria-hidden="true">⌂</span><span>Home</span></a>
+  </div>
   <button class="hamburger" onclick="toggleSidebar()">☰</button>
 </header>
 

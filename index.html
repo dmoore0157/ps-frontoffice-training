@@ -55,7 +55,7 @@
   }
   .lms-logo { font-family:'DM Serif Display',serif; color:var(--ps-white); font-size:1.2rem; }
   .lms-logo span { color:var(--ps-orange-light); font-family:'DM Sans',sans-serif; font-weight:700; }
-  .lms-header nav { display:flex; gap:1.5rem; }
+  .header-right { display:flex; align-items:center; gap:1rem; }
   .lms-header nav a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.85rem; font-weight:500; transition:color .2s; }
   .lms-header nav a:hover { color:var(--ps-white); }
   .hamburger { display:none; background:none; border:none; color:white; font-size:1.5rem; cursor:pointer; }
@@ -583,13 +583,11 @@
 
 <!-- HEADER -->
 <div class="lms-header">
-  <div class="lms-logo">Prevent<span>Scripts</span> LMS</div>
+  <div class="lms-logo">Prevent<span>Scripts</span> Front Office Training</div>
   <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
-  <nav>
-    <a href="#" onclick="returnToLanding();return false;">Home</a>
-    <a href="#" onclick="goTo(0);return false;">Dashboard</a>
-    <a href="#" onclick="goTo(1);return false;">Course Library</a>
-  </nav>
+  <div class="header-right">
+    <a href="index.html" onclick="returnToLanding();return false;" style="color:rgba(255,255,255,0.9);font-size:0.85rem;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.4);border-radius:999px;padding:0.3rem 0.9rem;display:inline-flex;align-items:center;gap:0.4rem;"><span aria-hidden="true">⌂</span><span>Home</span></a>
+  </div>
 </div>
 
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
