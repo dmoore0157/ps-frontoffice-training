@@ -38,6 +38,8 @@ body{font-family:'DM Sans',sans-serif;color:var(--ps-dark);background:var(--ps-g
 .sidebar{width:var(--sidebar-w);background:var(--ps-white);border-right:1px solid #e0e6e8;position:fixed;top:var(--header-h);bottom:0;left:0;overflow-y:auto;padding:1.5rem;z-index:100;transition:transform .3s ease}
 .sidebar-title{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--ps-dark);line-height:1.3;margin-bottom:1rem}
 .progress-wrap{margin-bottom:1.5rem}
+.header-progress{display:flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.8);font-size:.85rem}
+.header-progress .progress-bar{width:80px;height:6px;background:rgba(255,255,255,.2)}
 .progress-label{display:flex;justify-content:space-between;font-size:.8rem;font-weight:600;color:var(--ps-gray);margin-bottom:.4rem}
 .progress-label .pct{color:var(--ps-dark);font-size:.95rem}
 .progress-bar{height:8px;background:#e0e6e8;border-radius:100px;overflow:hidden}
@@ -157,6 +159,7 @@ canvas#certCanvas.show{display:block}
 <header class="lms-header">
   <a href="index.html" class="lms-logo">Prevent<span>Scripts</span> Provider Super User</a>
   <div class="header-right">
+    <div class="header-progress"><span id="headerPct">0%</span><div class="progress-bar"><div class="progress-fill" id="headerFill"></div></div></div>
     <a href="index.html" style="color:rgba(255,255,255,0.9);font-size:0.85rem;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.4);border-radius:999px;padding:0.3rem 0.9rem;display:inline-flex;align-items:center;gap:0.4rem;"><span aria-hidden="true">⌂</span><span>Home</span></a>
   </div>
   <button class="hamburger" onclick="toggleSidebar()">☰</button>
@@ -393,6 +396,8 @@ function goTo(i){
   var pct=Math.round(visited.length/total*100);
   document.getElementById('progBar').style.width=pct+'%';
   document.getElementById('pctLabel').textContent=pct+'%';
+  document.getElementById('headerFill').style.width=pct+'%';
+  document.getElementById('headerPct').textContent=pct+'%';
   cur=i;window.scrollTo(0,0);
   if(window.innerWidth<=900) document.getElementById('sidebar').classList.remove('open');
   if(i===6) checkCertAccess();
@@ -524,6 +529,9 @@ function reportSCORM(){
 }
 window.addEventListener('beforeunload',function(){if(lmsAPI){try{lmsAPI.LMSFinish('')}catch(e){}}});
 document.addEventListener('DOMContentLoaded',function(){
+  var initPct=Math.round(visited.length/total*100);
+  document.getElementById('headerPct').textContent=initPct+'%';
+  document.getElementById('headerFill').style.width=initPct+'%';
   ['part1-intro.mp4','part2-platform.mp4','part3-ttm-promis.mp4','part4-five-a.mp4'].forEach(function(src){
     var v=document.querySelector('video[src="'+src+'"]');
     if(v){v.playbackRate=1.2;v.addEventListener('play',function(){this.playbackRate=1.2;});}

@@ -56,6 +56,8 @@
   .lms-logo { font-family:'DM Serif Display',serif; color:var(--ps-white); font-size:1.2rem; }
   .lms-logo span { color:var(--ps-orange-light); font-family:'DM Sans',sans-serif; font-weight:700; }
   .header-right { display:flex; align-items:center; gap:1rem; }
+  .header-progress { display:flex; align-items:center; gap:0.5rem; color:rgba(255,255,255,0.8); font-size:0.85rem; }
+  .header-progress .progress-bar { width:80px; height:6px; background:rgba(255,255,255,0.2); }
   .lms-header nav a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.85rem; font-weight:500; transition:color .2s; }
   .lms-header nav a:hover { color:var(--ps-white); }
   .hamburger { display:none; background:none; border:none; color:white; font-size:1.5rem; cursor:pointer; }
@@ -586,6 +588,7 @@
   <div class="lms-logo">Prevent<span>Scripts</span> Front Office Training</div>
   <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
   <div class="header-right">
+    <div class="header-progress"><span id="headerPct">0%</span><div class="progress-bar"><div class="progress-fill" id="headerFill"></div></div></div>
     <a href="index.html" onclick="returnToLanding();return false;" style="color:rgba(255,255,255,0.9);font-size:0.85rem;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.4);border-radius:999px;padding:0.3rem 0.9rem;display:inline-flex;align-items:center;gap:0.4rem;"><span aria-hidden="true">⌂</span><span>Home</span></a>
   </div>
 </div>
@@ -1146,6 +1149,8 @@ function updateProgress() {
   const pct = Math.round((visited.size/totalModules)*100);
   document.getElementById('progressPct').textContent = pct+'%';
   document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('headerPct').textContent = pct+'%';
+  document.getElementById('headerFill').style.width = pct+'%';
 }
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
