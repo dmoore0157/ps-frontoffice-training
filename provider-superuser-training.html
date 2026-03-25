@@ -402,16 +402,31 @@ function genCert(){
   /* ── Digital Signatures ── */
   /* Left: Natalie Davis, MD */
   ctx.save();
-  ctx.strokeStyle='#17494d';ctx.lineWidth=1.5;ctx.lineCap='round';ctx.lineJoin='round';
+  ctx.strokeStyle='#17494d';ctx.lineWidth=1.8;ctx.lineCap='round';ctx.lineJoin='round';
   ctx.beginPath();
-  ctx.moveTo(270,530);ctx.bezierCurveTo(278,518,285,522,292,528);
-  ctx.bezierCurveTo(298,533,304,520,312,516);ctx.bezierCurveTo(320,512,326,526,332,530);
-  ctx.bezierCurveTo(338,534,343,518,350,515);ctx.bezierCurveTo(358,512,366,528,372,525);
-  ctx.bezierCurveTo(378,522,382,530,388,528);ctx.bezierCurveTo(394,526,398,520,404,522);
-  ctx.bezierCurveTo(410,524,416,518,420,520);
+  // Capital N – two verticals joined by diagonal
+  ctx.moveTo(270,540);ctx.lineTo(270,514);ctx.lineTo(286,537);ctx.lineTo(286,514);
+  // flowing 'atalie'
+  ctx.bezierCurveTo(290,512,294,520,297,526);
+  ctx.bezierCurveTo(300,532,305,514,309,510);
+  ctx.bezierCurveTo(314,506,317,519,319,527);
+  ctx.bezierCurveTo(321,533,327,516,333,512);
+  ctx.bezierCurveTo(339,508,341,521,341,527);
+  // Capital D – closed loop
+  ctx.bezierCurveTo(341,533,347,539,355,536);
+  ctx.bezierCurveTo(365,531,366,516,357,510);
+  ctx.bezierCurveTo(348,504,340,511,340,521);
+  // 'avis'
+  ctx.moveTo(368,529);
+  ctx.bezierCurveTo(374,525,378,515,384,520);
+  ctx.bezierCurveTo(390,525,394,513,400,510);
+  ctx.bezierCurveTo(406,507,408,520,412,525);
+  ctx.bezierCurveTo(416,530,419,522,422,519);
+  // underline with small uptick flourish
+  ctx.moveTo(268,550);
+  ctx.bezierCurveTo(310,546,360,548,422,543);
+  ctx.bezierCurveTo(426,542,428,545,425,541);
   ctx.stroke();
-  /* "MD" flourish */
-  ctx.beginPath();ctx.moveTo(390,535);ctx.bezierCurveTo(395,542,400,540,405,535);ctx.stroke();
   ctx.restore();
   ctx.strokeStyle='#6b7c85';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(250,555);ctx.lineTo(440,555);ctx.stroke();
   ctx.font='11px "DM Sans",sans-serif';ctx.fillStyle='#6b7c85';
@@ -421,15 +436,32 @@ function genCert(){
 
   /* Right: David Moore, RN, COO */
   ctx.save();
-  ctx.strokeStyle='#17494d';ctx.lineWidth=1.5;ctx.lineCap='round';ctx.lineJoin='round';
+  ctx.strokeStyle='#17494d';ctx.lineWidth=1.8;ctx.lineCap='round';ctx.lineJoin='round';
   ctx.beginPath();
-  ctx.moveTo(510,532);ctx.bezierCurveTo(518,520,525,524,530,528);
-  ctx.bezierCurveTo(536,532,542,516,550,518);ctx.bezierCurveTo(558,520,564,530,570,526);
-  ctx.bezierCurveTo(576,522,582,534,588,530);ctx.bezierCurveTo(594,526,600,520,608,524);
-  ctx.bezierCurveTo(614,528,620,518,628,522);ctx.bezierCurveTo(634,526,640,520,648,524);
+  // Capital D – vertical stroke + closed arc
+  ctx.moveTo(510,540);ctx.lineTo(510,510);
+  ctx.bezierCurveTo(510,506,528,504,538,514);
+  ctx.bezierCurveTo(548,524,546,538,534,543);
+  ctx.bezierCurveTo(522,547,510,544,510,540);
+  // 'avid' – V dip for 'v', loop for 'id'
+  ctx.moveTo(550,528);
+  ctx.bezierCurveTo(556,524,560,514,566,520);
+  ctx.bezierCurveTo(572,526,576,511,582,507);
+  ctx.bezierCurveTo(588,503,590,518,589,528);
+  // Capital M – two smooth arches
+  ctx.bezierCurveTo(589,534,593,540,597,534);
+  ctx.bezierCurveTo(601,526,604,508,608,508);
+  ctx.bezierCurveTo(612,508,614,520,614,528);
+  ctx.bezierCurveTo(614,534,618,526,622,508);
+  ctx.bezierCurveTo(626,508,628,520,628,532);
+  // 'oore'
+  ctx.bezierCurveTo(631,524,635,514,641,512);
+  ctx.bezierCurveTo(647,510,651,522,653,528);
+  ctx.bezierCurveTo(655,532,659,522,663,520);
+  // underline sweep
+  ctx.moveTo(508,550);
+  ctx.bezierCurveTo(552,546,602,548,664,543);
   ctx.stroke();
-  /* "RN" loop */
-  ctx.beginPath();ctx.moveTo(630,530);ctx.bezierCurveTo(636,538,642,536,646,530);ctx.stroke();
   ctx.restore();
   ctx.strokeStyle='#6b7c85';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(490,555);ctx.lineTo(680,555);ctx.stroke();
   ctx.font='11px "DM Sans",sans-serif';ctx.fillStyle='#6b7c85';
