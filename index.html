@@ -984,7 +984,7 @@ function enterFrontOffice() {
 function returnToLanding() {
   const landing = document.getElementById('landing');
   const app = document.getElementById('frontOfficeApp');
-  if (landing) landing.style.display = 'block';
+  if (landing) landing.style.display = '';
   if (app) app.style.display = 'none';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
